@@ -1,20 +1,8 @@
 from datetime import datetime
 from flask_wtf import Form
-from wtforms import StringField, SelectField, SelectMultipleField, DateTimeField
+from wtforms import StringField, SelectField, SelectMultipleField, DateTimeField,BooleanField
 from wtforms.validators import DataRequired, AnyOf, URL
 
-class ShowForm(Form):
-    artist_id = StringField(
-        'artist_id'
-    )
-    venue_id = StringField(
-        'venue_id'
-    )
-    start_time = DateTimeField(
-        'start_time',
-        validators=[DataRequired()],
-        default= datetime.today()
-    )
 
 class VenueForm(Form):
     name = StringField(
@@ -116,6 +104,26 @@ class VenueForm(Form):
     facebook_link = StringField(
         'facebook_link', validators=[URL()]
     )
+    website_link = StringField(
+        'website_link', validators=[URL()]
+    )
+    past_shows_count = StringField(
+        'past_shows_count', validators=[URL()]
+    )
+    upcoming_shows_count = StringField(
+        'upcoming_shows_count', validators=[URL()]
+    )
+    seeking_talent = BooleanField(
+        ' seeking_talent', validators=[URL()]
+    )
+    seeking_description = StringField(
+        ' seeking_description', validators=[DataRequired(), ]
+    )
+    
+    
+
+
+# TODO IMPLEMENT NEW ARTIST FORM AND NEW SHOW FORM
 
 class ArtistForm(Form):
     name = StringField(
@@ -216,5 +224,34 @@ class ArtistForm(Form):
         # TODO implement enum restriction
         'facebook_link', validators=[URL()]
     )
+    website_link = StringField(
+        'website_link', validators=[URL()]
+    )
+    past_shows_count = StringField(
+        'past_shows_count', validators=[URL()]
+    )
+    upcoming_shows_count = StringField(
+        'upcoming_shows_count', validators=[URL()]
+    )
+    seeking_venue = BooleanField(
+        ' seeking_venue', validators=[URL()]
+    )
+    seeking_description = StringField(
+        ' seeking_description', validators=[DataRequired(), ]
+    )
+    
 
-# TODO IMPLEMENT NEW ARTIST FORM AND NEW SHOW FORM
+
+    
+class ShowForm(Form):
+    artist_id = StringField(
+        'artist_id'
+    )
+    venue_id = StringField(
+        'venue_id'
+    )
+    start_time = DateTimeField(
+        'start_time',
+        validators=[DataRequired()],
+        default= datetime.today()
+    )

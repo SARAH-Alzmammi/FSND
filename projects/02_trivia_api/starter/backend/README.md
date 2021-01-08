@@ -88,6 +88,70 @@ GET '/categories'
 '6' : "Sports"}
 
 ```
+GET '/questions'
+Fetches a dictionary of questions in which the keys are the id,answer,category,difficulty,and question the values are the corresponding strings for echa one. 
+- Request Arguments: None
+- Returns: An object of key:value pairs.
+For example
+ {
+"answer": "Agra",
+"category": 3,
+"difficulty": 2,
+"id": 15,
+"question": "The Taj Mahal is located in which Indian city?"
+},
+
+```
+DELETE '/questions/id'
+
+Request Arguments: question id
+
+DELETE one question by it's id
+
+```
+POST '/questions'
+
+Request Arguments: question,answer,category,difficulty
+
+Create a question and add it to the database
+
+
+```
+POST '/questions/search'
+
+Request Arguments: search term
+
+Get questions based on a search term and return any questions for whom the search term 
+
+```
+GET '/questions/category/'
+
+Request Arguments: category id
+
+Get a questions based on category. 
+
+
+```
+GET '/questions/play/category_id/question_id'
+
+Request Arguments: category id, question id
+
+ get questions to play the quiz. it take category and previous question parameters   and return a random questions within the given category.
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Testing
